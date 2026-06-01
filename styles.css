@@ -26,7 +26,7 @@ body {
   z-index: 0;
   background-image: url('media/os-logo-color.png');
   background-repeat: repeat;
-  background-size: 120px auto;
+  background-size: 60px auto;
   animation: scroll-bg 25s linear infinite;
   opacity: 0.15;
 }
