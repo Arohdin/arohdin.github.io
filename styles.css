@@ -213,3 +213,66 @@ body {
 .card-field a:hover::before {
   transform: scaleX(1);
 }
+
+@media (max-width: 640px) {
+  :root {
+    --card-scale: 1;
+  }
+
+  .card {
+    aspect-ratio: 11 / 17;
+    max-height: 92vh;
+    padding: calc(24px * var(--card-scale));
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: calc(14px * var(--card-scale));
+    margin-bottom: calc(24px * var(--card-scale));
+  }
+
+  .card-header-text {
+    order: 2;
+  }
+
+  .card-avatar {
+    order: 1;
+    width: 110px;
+    height: 110px;
+  }
+
+  .card-contact {
+    justify-items: center;
+  }
+
+  .card-fields {
+    flex-direction: column;
+    gap: calc(12px * var(--card-scale));
+  }
+
+  .card-divider {
+    margin-bottom: calc(24px * var(--card-scale));
+  }
+
+  .card-name {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  }
+
+  .card-title {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+  }
+
+  .card-company {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  }
+
+  .card-field {
+    font-size: 0.85rem;
+  }
+
+  .field-label {
+    font-size: 0.75rem;
+  }
+}
