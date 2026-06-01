@@ -311,3 +311,15 @@ body {
     font-size: 0.75rem;
   }
 }
+
+.site-footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 3;
+  pointer-events: none;
+}
