@@ -184,15 +184,13 @@ body {
 
 .card-fields {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: calc(64px * var(--card-scale));
 }
 
 .card-field {
   display: flex;
   align-items: baseline;
-  gap: calc(0px * var(--card-scale));
   font-size: calc(0.65rem * var(--card-scale));
 }
 
