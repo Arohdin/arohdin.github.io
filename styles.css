@@ -176,9 +176,19 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #555;
-  min-width: calc(50px * var(--card-scale));
+  color: #888;
+  min-width: calc(24px * var(--card-scale));
   padding-top: 1px;
+}
+
+.field-label i {
+  vertical-align: middle;
+}
+
+.card-field a i {
+  margin-right: 6px;
+  font-size: 0.85em;
+  color: #888;
 }
 
 .field-value {
