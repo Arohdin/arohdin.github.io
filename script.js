@@ -32,8 +32,6 @@
   card.addEventListener('mouseleave', function () {
     card.style.transition = 'transform 1.0s cubic-bezier(0.23, 1, 0.32, 1)';
     card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    card.style.setProperty('--glare-x', '50%');
-    card.style.setProperty('--glare-y', '50%');
 
     resetTimer = setTimeout(function () {
       card.style.transition = 'none';
