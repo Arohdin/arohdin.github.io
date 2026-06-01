@@ -101,8 +101,8 @@ body {
 }
 
 .card-avatar {
-  width: calc(80px * var(--card-scale));
-  height: calc(80px * var(--card-scale));
+  width: calc(110px * var(--card-scale));
+  height: calc(110px * var(--card-scale));
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -239,8 +239,8 @@ body {
 
   .card-avatar {
     order: 1;
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
   }
 
   .card-contact {
