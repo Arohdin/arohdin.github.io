@@ -315,7 +315,7 @@ body {
 
 .site-footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -323,4 +323,6 @@ body {
   color: rgba(255, 255, 255, 0.2);
   z-index: 3;
   pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.65));
+  padding: 24px 20px 10px;
 }
