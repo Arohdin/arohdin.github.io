@@ -7,6 +7,22 @@
 
   var hasPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  var scrollIndicator = document.querySelector('.scroll-indicator');
+
+  function updateScrollIndicator() {
+    var overflow = document.documentElement.scrollHeight > window.innerHeight;
+    var scrolled = window.scrollY > 16;
+    if (overflow && !scrolled) {
+      scrollIndicator.classList.add('visible');
+    } else {
+      scrollIndicator.classList.remove('visible');
+    }
+  }
+
+  updateScrollIndicator();
+  window.addEventListener('resize', updateScrollIndicator);
+  window.addEventListener('scroll', updateScrollIndicator);
+
   if (hasPointer) {
     card.addEventListener('mouseenter', function () {
       card.style.transition = 'none';
