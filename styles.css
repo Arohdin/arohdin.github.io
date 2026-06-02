@@ -49,25 +49,57 @@ body {
   z-index: 2;
   perspective: 1000px;
   perspective-origin: center;
+  border-radius: 24px;
 }
 
-.card {
+.card-wrapper {
   width: min(var(--card-width), 88vw);
   aspect-ratio: 17 / 11;
-  padding: calc(40px * var(--card-scale));
-  background: rgba(16, 16, 22, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
-  cursor: default;
+  overflow: hidden;
+  border-radius: 24px;
   transform-style: preserve-3d;
+  cursor: default;
   box-shadow:
     0 2px 30px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(255, 255, 255, 0.03),
     0 0 50px rgba(71, 193, 233, 0.04),
     0 0 25px rgba(208, 218, 123, 0.03);
+}
+
+.card-shimmer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: 0;
+  height: 200%;
+  width: 200%;
+  transform: rotate(-45deg);
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    transparent 20%,
+    var(--accent1) 45%,
+    var(--accent2) 55%,
+    transparent 80%
+  );
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.card {
+  position: absolute;
+  inset: 1px;
+  padding: calc(40px * var(--card-scale));
+  background: #101016;
+  border-radius: inherit;
   overflow: hidden;
 }
 
@@ -103,7 +135,7 @@ body {
   transition: opacity 0.4s ease;
 }
 
-.card:hover .card-glare {
+.card-wrapper:hover .card-glare {
   opacity: 1;
 }
 
@@ -251,8 +283,11 @@ body {
     --card-scale: 1;
   }
 
-  .card {
+  .card-wrapper {
     aspect-ratio: 11 / 17;
+  }
+
+  .card {
     padding: calc(24px * var(--card-scale));
   }
 
