@@ -11,7 +11,7 @@
   var scrollIndicator = document.querySelector('.scroll-indicator');
 
   function updateScrollIndicator() {
-    var overflow = document.documentElement.scrollHeight > window.innerHeight;
+    var overflow = document.documentElement.scrollHeight > (window.visualViewport ? window.visualViewport.height : window.innerHeight);
     var scrolled = window.scrollY > 16;
     if (overflow && !scrolled) {
       scrollIndicator.classList.add('visible');
@@ -58,4 +58,27 @@
       }, 1200);
     });
   }
+})();
+
+(function () {
+  var showMarquee = true;
+  var marquee = document.querySelector('.page-marquee');
+  if (!showMarquee) {
+    marquee.style.display = 'none';
+    return;
+  }
+
+  var track = document.querySelector('.page-marquee__track');
+  if (!track) return;
+  var word = 'コンニチハ Fukuoka';
+  var word2 = 'IPS 2026';
+  var sep = '<span class="page-marquee__sep">●</span> ';
+  var count = 12;
+  var block = '';
+  for (var i = 0; i < count; i++) {
+    block += word + ' ' + sep + word2 + ' ' + sep;
+  }
+  var spans = track.querySelectorAll('.page-marquee__content');
+  spans[0].innerHTML = block;
+  spans[1].innerHTML = block;
 })();

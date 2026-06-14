@@ -3,6 +3,7 @@
 :root {
   --accent1: #D0DA7B;
   --accent2: #47C1E9;
+  --nge-red: #CC3333;
   --bg: #000000;
   --card-scale: 1.5;
   --card-width: calc(440px * var(--card-scale));
@@ -11,6 +12,7 @@
 body {
   background: var(--bg);
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: safe center;
   justify-content: center;
@@ -278,6 +280,53 @@ body {
   transform: scaleX(1);
 }
 
+/* ── NGE Page Marquee ── */
+.page-marquee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #1a1012;
+  border-top: 1px solid rgba(204, 51, 51, 0.45);
+  border-bottom: 1px solid rgba(204, 51, 51, 0.35);
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 0 11px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page-marquee__track {
+  display: inline-block;
+  animation: marquee-scroll 90s linear infinite;
+  white-space: nowrap;
+}
+
+.page-marquee__content {
+  font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f8f8f8;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 0 4px rgba(204, 51, 51, 0.4),
+    0 0 8px rgba(204, 51, 51, 0.15);
+}
+
+.page-marquee__sep {
+  color: var(--nge-red);
+  margin: 0 0.4em;
+  text-shadow:
+    0 0 6px rgba(204, 51, 51, 0.6),
+    0 0 12px rgba(204, 51, 51, 0.3);
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @media (max-width: 640px) {
   :root {
     --card-scale: 1;
@@ -341,6 +390,18 @@ body {
   .field-label {
     font-size: 0.75rem;
   }
+
+  .page-marquee {
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 0 7px;
+  }
+
+  .page-marquee__track {
+    animation: marquee-scroll 90s linear infinite;
+  }
+
+  .page-marquee__content {
+    font-size: 1rem;
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -349,7 +410,7 @@ body {
 
 .scroll-indicator {
   position: fixed;
-  bottom: 40px;
+  bottom: calc(40px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
@@ -371,7 +432,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .scroll-indicator { bottom: 32px; font-size: 1.2rem; }
+  .scroll-indicator { bottom: calc(32px + env(safe-area-inset-bottom, 0px)); font-size: 1.2rem; }
 }
 
 .site-footer {
@@ -385,5 +446,5 @@ body {
   z-index: 3;
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.65));
-  padding: 24px 20px 10px;
+  padding: 24px 20px calc(10px + env(safe-area-inset-bottom, 0px));
 }
