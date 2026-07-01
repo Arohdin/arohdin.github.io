@@ -1,3 +1,8 @@
+// FLAGS
+F_SHOW_MARQUEE = false;
+
+
+// Card animations
 (function () {
   var wrapper = document.querySelector('.card-wrapper');
   var card = document.querySelector('.card');
@@ -60,10 +65,11 @@
   }
 })();
 
+
+// Marquee banner
 (function () {
-  var showMarquee = true;
   var marquee = document.querySelector('.page-marquee');
-  if (!showMarquee) {
+  if (!F_SHOW_MARQUEE) {
     marquee.style.display = 'none';
     return;
   }
